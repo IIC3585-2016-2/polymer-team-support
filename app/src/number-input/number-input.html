@@ -1,0 +1,40 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!--
+`number input`
+input
+
+@demo demo/index.html
+-->
+
+<dom-module id="number-input">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <label>[[title]]</label>
+    <input id="input1" type="number" value="{{result::input}}"></input>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'number-input',
+
+      properties: {
+        result: {
+          type: Number,
+          value: 0,
+          notify: true,
+          reflectToAttribute: true,
+        },
+        title: {
+          type: String
+        }
+      },
+
+    });
+  </script>
+</dom-module>

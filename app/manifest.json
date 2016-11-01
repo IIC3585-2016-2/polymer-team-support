@@ -1,0 +1,7 @@
+{
+  "name": "simple-calculator",
+  "short_name": "simple-calculator",
+  "description": "calc",
+  "start_url": "/",
+  "display": "standalone"
+}

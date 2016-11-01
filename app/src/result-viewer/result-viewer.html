@@ -1,0 +1,45 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<!--
+`result-viewer`
+viewer
+
+@demo demo/index.html
+-->
+
+<dom-module id="result-viewer">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      span {
+        color:lawngreen;
+      }
+    </style>
+    <!--<h2>Result1 in result-viewer: [[result1]]</h2>
+    <h2>Result2 in result-viewer: [[result2]]</h2>-->
+    <h2>Total result: <span>[[result]]</span></h2>
+
+
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'result-viewer',
+
+      properties: {
+        result: {
+          type: Number,
+          value: 0,
+          notify: true,
+          reflectToAttribute: true,
+        },
+      },
+
+
+    });
+  </script>
+</dom-module>
