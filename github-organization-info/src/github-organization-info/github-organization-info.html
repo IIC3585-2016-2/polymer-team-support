@@ -8,14 +8,16 @@
       }
 
     </style>
-    <table border="1">
-        <tr><th id="name"></th></th>
-        <tr><th><a id="url">organization url</a></th></tr>
-        <tr><th><img id="img"></img></th></tr>
-        <tr ><th id="desc"></th></tr>
-        <tr ><th id="loc"></th></tr>
-        <tr ><th id="repocount"></th></tr>
-    </table>
+    <div style="border:1px solid black;width:30%;" width="200">
+      <table border="0">
+          <tr><th id="name"></th></th>
+          <tr><th><a id="url">organization url</a></th></tr>
+          <tr><th><img id="img" height="70" width="70"></img></th></tr>
+          <tr ><th id="desc"></th></tr>
+          <tr ><th id="loc"></th></tr>
+          <tr ><th id="repocount"></th></tr>
+      </table>
+    </div>
   </template>
 
   <script>
@@ -47,11 +49,11 @@
       handleResponse: function(responseText)          {
           var parsedResponse = JSON.parse(responseText);
           this.$.name.textContent = parsedResponse.name;
-          this.$.url.href = parsedResponse.url;
+          this.$.url.href = parsedResponse.html_url;
           this.$.img.src = parsedResponse.avatar_url;
           this.$.desc.textContent = parsedResponse.description;
           this.$.loc.textContent = parsedResponse.location;
-          this.$.repocount.textContent = parsedResponse.public_repos;
+          this.$.repocount.textContent = "Repositories: " + parsedResponse.public_repos;
       },
 
 
