@@ -18,7 +18,7 @@ viewer
       }
     </style>
 
-    <h2>Total result: <span>[[result]]</span></h2>
+    <h2>Total result: <span id="rslt">[[result]]</span></h2>
 
 
 
@@ -34,10 +34,19 @@ viewer
           type: Number,
           value: 0,
           notify: true,
+          observer: '_checkSign',
         },
       },
 
-
+      _checkSign: function()
+      {
+        if (parseInt(this.result) >= 0 ) {
+          this.$.rslt.style.color = "lawngreen";
+        }
+        else {
+          this.$.rslt.style.color = "red";
+        }
+      },
     });
   </script>
 </dom-module>
