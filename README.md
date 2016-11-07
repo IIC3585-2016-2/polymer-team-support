@@ -1,4 +1,3 @@
-# \<random-gen\>
 
 Team support components
 
