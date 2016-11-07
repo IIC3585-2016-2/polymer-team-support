@@ -1,7 +1,0 @@
-{
-  "name": "sprite-animator",
-  "short_name": "sprite-animator",
-  "description": "Animates from an array of images a sprite",
-  "start_url": "/",
-  "display": "standalone"
-}

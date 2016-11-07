@@ -1,0 +1,63 @@
+
+
+<dom-module id="operation-manager">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      div {
+        padding:10px 0 0 0;
+      }
+    </style>
+    <div>
+    <button id="sumButton">sum</button>
+    <button id="minusButton">diff</button>
+    <button id="multButton">mult</button>
+    <button id="divButton">div</button>
+  </div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'operation-manager',
+
+      properties: {
+        result1: {
+          type: Number,
+          value: 0,
+        },
+        result2: {
+          type: Number,
+          value: 0,
+        },
+        result3: {
+          type: Number,
+          value: 0,
+          notify: true,
+        },
+      },
+      listeners: {
+      'sumButton.tap': 'sum',
+      'minusButton.tap': 'diff',
+      'multButton.tap': 'mult',
+      'divButton.tap': 'div'
+
+    },
+    sum: function() {
+      this.result3 = parseInt(this.result1) + parseInt(this.result2);
+    },
+    diff: function() {
+      this.result3 = parseInt(this.result1) - parseInt(this.result2);
+    },
+    mult: function() {
+      this.result3 = parseInt(this.result1) * parseInt(this.result2);
+    },
+    div: function() {
+      this.result3 = parseInt(this.result1) / parseInt(this.result2);
+    },
+
+    });
+  </script>
+</dom-module>

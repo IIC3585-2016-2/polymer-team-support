@@ -1,7 +1,0 @@
-{
-  "name": "github-organization-info",
-  "short_name": "github-organization-info",
-  "description": "Web component for showing github&#39;s organizations info",
-  "start_url": "/",
-  "display": "standalone"
-}

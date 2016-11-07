@@ -1,0 +1,44 @@
+
+<dom-module id="result-viewer">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      span {
+        color:lawngreen;
+      }
+    </style>
+
+    <h2>Total result: <span id="rslt">[[result]]</span></h2>
+
+
+
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'result-viewer',
+
+      properties: {
+        result: {
+          type: Number,
+          value: 0,
+          notify: true,
+          observer: '_checkSign',
+        },
+      },
+
+      _checkSign: function()
+      {
+        if (parseInt(this.result) >= 0 ) {
+          this.$.rslt.style.color = "lawngreen";
+        }
+        else {
+          this.$.rslt.style.color = "red";
+        }
+      },
+    });
+  </script>
+</dom-module>

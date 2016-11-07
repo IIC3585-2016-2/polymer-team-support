@@ -1,0 +1,33 @@
+
+
+
+<dom-module id="number-input">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <label>[[title]]</label>
+    <input id="input1" type="number" value="{{result::input}}"></input>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'number-input',
+
+      properties: {
+        result: {
+          type: Number,
+          value: 0,
+          notify: true,
+        },
+        title: {
+          type: String
+        }
+      },
+
+    });
+  </script>
+</dom-module>
