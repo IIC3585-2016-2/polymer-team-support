@@ -96,9 +96,12 @@ Sprite animator component
       reader.readAsDataURL(file);
     }
 
-    document.querySelector('sprite-animator-app').addEventListener('reading', function (e) {
-        readfiles(e);})
-
     //document.getElementById('files').addEventListener('change', handleFileSelect, false);
 
+</script>
+
+<script>
+var el = document.querySelector('sprite-animator-app');
+this.addEventListener('reading', function (e) {
+          readfiles(e);});
 </script>

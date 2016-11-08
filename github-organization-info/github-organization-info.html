@@ -1,0 +1,69 @@
+<link rel="import" href="../../polymer/polymer.html">
+<!--
+`github-organization-info`
+github organization information
+
+@demo demo/github-organization-info-demo.html
+-->
+<dom-module id="github-organization-info">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+
+    </style>
+    <div style="border:1px solid black;width:30%;" width="200">
+      <table border="0">
+          <tr><th id="name"></th></th>
+          <tr><th><a id="url">organization url</a></th></tr>
+          <tr><th><img id="img" height="70" width="70"></img></th></tr>
+          <tr ><th id="desc"></th></tr>
+          <tr ><th id="loc"></th></tr>
+          <tr ><th id="repocount"></th></tr>
+          <tr><th id='followers'></th></tr>
+      </table>
+    </div>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'github-organization-info',
+
+      properties: {
+        organization: {
+          type: String,
+          value: '',
+        },
+      },
+      ready: function (){
+        this.req();
+      },
+      req: function()      {
+        var xmlHttp = new XMLHttpRequest();
+        self = this;
+        xmlHttp.onreadystatechange = function() {
+            if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+                self.handleResponse(xmlHttp.responseText);
+        };
+        var fullURL = 'https://api.github.com/orgs/' + this.organization;
+        xmlHttp.open("GET", fullURL, true);
+        xmlHttp.send();
+      },
+
+      handleResponse: function(responseText)          {
+          var parsedResponse = JSON.parse(responseText);
+          this.$.name.textContent = parsedResponse.name;
+          this.$.url.href = parsedResponse.html_url;
+          this.$.img.src = parsedResponse.avatar_url;
+          this.$.desc.textContent = parsedResponse.description;
+          this.$.loc.textContent = parsedResponse.location;
+          this.$.repocount.textContent = "Repositories: " + parsedResponse.public_repos;
+          this.$.followers.textContent = "Followers: " + parsedResponse.followers;
+      },
+
+
+    });
+  </script>
+</dom-module>
